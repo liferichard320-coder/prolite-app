@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prolite</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="logo">PROLITE</div>
+        <div class="topbar-icons" aria-label="Quick actions">
+          <button class="icon-button" aria-label="Notifications">🔔</button>
+          <button class="icon-button" aria-label="Wallet">💰</button>
+        </div>
+      </header>
+
+      <main class="page">
+        <section class="card featured-card">
+          <div class="section-heading">
+            <h3>🎬 Video Feed</h3>
+            <span class="live-badge">LIVE</span>
+          </div>
+
+          <video controls poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80">
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+          </video>
+
+          <div class="creator-row">
+            <div class="avatar">@</div>
+            <div>
+              <p class="creator-name"><b>@Creator</b></p>
+              <p class="meta">25K followers</p>
+            </div>
+          </div>
+
+          <p class="caption">My new video 🔥</p>
+
+          <div class="action-row">
+            <button>❤️ Like</button>
+            <button>💬 Comment</button>
+            <button>↗️ Share</button>
+            <button class="primary-btn">➕ Follow</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>➕ Create</h3>
+          <div class="grid-actions">
+            <button>🎥 Short Video</button>
+            <button>🎞️ Long Video</button>
+            <button>📢 Status</button>
+            <button>🔴 Go Live</button>
+            <button id="uploadBtn">📁 Upload Media</button>
+          </div>
+          <input id="fileInput" type="file" hidden multiple accept="video/*,image/*,audio/*" />
+        </section>
+
+        <section class="card">
+          <h3>💬 Communication</h3>
+          <div class="grid-actions">
+            <button>💬 Chat</button>
+            <button>📹 Video Call</button>
+            <button>📞 Audio Call</button>
+            <button>🎤 Voice Note</button>
+          </div>
+        </section>
+
+        <section class="card storage-card">
+          <div class="storage-header">
+            <h3>💾 Storage</h3>
+            <span class="storage-pill">110 MB</span>
+          </div>
+
+          <div class="storage-summary">
+            <div>
+              <p class="label">Used</p>
+              <p id="usedSpace" class="usage-value">0.00 MB</p>
+            </div>
+            <div>
+              <p class="label">Available</p>
+              <p id="freeSpace" class="usage-value">110.00 MB</p>
+            </div>
+          </div>
+
+          <div class="storage-bar" aria-label="Storage usage bar">
+            <div id="storageFill" class="storage-fill"></div>
+          </div>
+
+          <div class="storage-meta">
+            <span id="usagePercent">0%</span>
+            <span>of 110 MB</span>
+          </div>
+
+          <div class="storage-actions">
+            <button class="primary-btn" id="addStorageBtn">+ Add 12 MB</button>
+            <button id="clearStorageBtn">Clear</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>💰 Creator Wallet</h3>
+          <p>Gifts • Subscriptions • Creator Programs</p>
+          <p class="wallet-balance">Balance: ₦0.00</p>
+          <button>Withdraw</button>
+        </section>
+
+        <section class="card">
+          <h3>🌍 Discover</h3>
+          <p>Trending • People • Music • Products • Brands</p>
+          <button>Translate</button>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <button class="nav-item active"><span>🏠</span><small>Home</small></button>
+        <button class="nav-item"><span>🔎</span><small>Discover</small></button>
+        <button class="nav-item"><span>➕</span><small>Create</small></button>
+        <button class="nav-item"><span>💬</span><small>Chat</small></button>
+        <button class="nav-item"><span>👤</span><small>Profile</small></button>
+      </nav>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
