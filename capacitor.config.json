@@ -1,0 +1,9 @@
+{
+  "appId": "com.prolite.app",
+  "appName": "Prolite",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}

@@ -10,6 +10,9 @@ const freeSpaceEl = document.getElementById('freeSpace');
 const storageFillEl = document.getElementById('storageFill');
 const usagePercentEl = document.getElementById('usagePercent');
 const toastEl = document.getElementById('toast');
+const installBtn = document.getElementById('installBtn');
+
+let deferredPrompt = null;
 
 function formatMb(value) {
   return `${value.toFixed(2)} MB`;
@@ -93,7 +96,7 @@ addStorageBtn.addEventListener('click', () => {
   }
 
   setUsedStorage(current + increment);
-  showToast(`Added 12 MB of storage usage.`);
+  showToast('Added 12 MB of storage usage.');
 });
 
 clearStorageBtn.addEventListener('click', () => {
@@ -101,29 +104,29 @@ clearStorageBtn.addEventListener('click', () => {
   showToast('Storage cleared.');
 });
 
-renderStorage();
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+  });
+}
 
-window.addEventListener('storage', () => {
-  renderStorage();
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  deferredPrompt = event;
+  installBtn.hidden = false;
 });
 
+installBtn.addEventListener('click', async () => {
+  if (!deferredPrompt) {
+    showToast('This browser does not support install prompts.');
+    return;
+  }
 
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  installBtn.hidden = true;
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+renderStorage();
+window.addEventListener('storage', renderStorage);

@@ -43,7 +43,7 @@ button {
   padding: 10px 14px;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.2s ease;
+  transition: transform 0.15s ease, background 0.2s ease, opacity 0.2s ease;
 }
 
 button:hover {
@@ -60,7 +60,9 @@ button:active {
   min-height: 100vh;
   background: #0b0b0b;
   position: relative;
-  padding-bottom: 90px;
+  padding-bottom: 94px;
+  border-left: 1px solid rgba(255, 255, 255, 0.03);
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .topbar {
@@ -70,7 +72,7 @@ button:active {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 18px;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) 18px 16px;
   background: rgba(17, 17, 17, 0.96);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
@@ -250,6 +252,21 @@ video {
   color: var(--muted);
 }
 
+.app-install-wrap {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.install-btn {
+  width: min(100%, 320px);
+  background: linear-gradient(135deg, #8e7dff, #00e5ff);
+  color: #061114;
+  font-weight: bold;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(0, 229, 255, 0.28);
+}
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -260,7 +277,7 @@ video {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   justify-content: space-around;
-  padding: 12px 10px 14px;
+  padding: calc(12px + env(safe-area-inset-bottom, 0px)) 10px 14px;
   backdrop-filter: blur(12px);
 }
 
